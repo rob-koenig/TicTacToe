@@ -1,0 +1,11 @@
+CC=gcc
+FLAGS=-g
+
+#Uncomment the next line abd comment the following for raspberry pi.  You have to install the libsense library per the instructions onto your raspberry pi.
+#tictac: tictac.o framebuffer.o
+tictac: tictac.o
+	$(CC) $(FLAGS) -o $@ $^ $(LIBS)
+tictac.o:tictac.c
+	$(CC) $(FLAGS) -c $<
+clean:
+	rm -f *.o tictac
